@@ -5,7 +5,8 @@ import "./App.css";
 
 // Pages publiques
 
-import Home from "./Composant/Header"
+import Home from "./Pages/Home";
+
 const router = createBrowserRouter([
 
   // -------------------------

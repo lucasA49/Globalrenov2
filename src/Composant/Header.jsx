@@ -11,14 +11,12 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
+    
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-14 py-4 flex items-center justify-between">
+        
         {/* LOGO */}
-        <NavLink
-          to="/"
-          className="text-2xl font-extrabold tracking-wide text-gray-900"
-        >
-          GLOBAL <span className="text-[#1F7A5A]">RENO</span>
+        <NavLink to="/">
+          <img src="/globalreno.png" alt="Global Reno" className="h-20" />
         </NavLink>
 
         {/* NAV DESKTOP */}
@@ -64,11 +62,7 @@ export default function Header() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d={
-                open
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M4 6h16M4 12h16M4 18h16"
-              }
+              d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
         </button>
@@ -78,19 +72,35 @@ export default function Header() {
       {open && (
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col px-6 py-4 gap-4 text-sm">
-            <NavLink to="/prestations" className={linkClass} onClick={() => setOpen(false)}>
+            <NavLink
+              to="/prestations"
+              className={linkClass}
+              onClick={() => setOpen(false)}
+            >
               Prestations
             </NavLink>
 
-            <NavLink to="/secteurs" className={linkClass} onClick={() => setOpen(false)}>
+            <NavLink
+              to="/secteurs"
+              className={linkClass}
+              onClick={() => setOpen(false)}
+            >
               Secteurs
             </NavLink>
 
-            <NavLink to="/realisations" className={linkClass} onClick={() => setOpen(false)}>
+            <NavLink
+              to="/realisations"
+              className={linkClass}
+              onClick={() => setOpen(false)}
+            >
               Réalisations
             </NavLink>
 
-            <NavLink to="/contact" className={linkClass} onClick={() => setOpen(false)}>
+            <NavLink
+              to="/contact"
+              className={linkClass}
+              onClick={() => setOpen(false)}
+            >
               Contact
             </NavLink>
 
