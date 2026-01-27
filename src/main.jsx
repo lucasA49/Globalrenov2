@@ -4,14 +4,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
 // Pages publiques
-import Home from "./Pages/Home.jsx";
 
-
+import Home from "./Composant/Header"
 const router = createBrowserRouter([
+
   // -------------------------
   // PAGES PUBLIQUES
   // -------------------------
-  {
+
+ {
     path: "/",
     element: <Home />,
   },
