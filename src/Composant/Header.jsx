@@ -4,29 +4,45 @@ import { useState } from "react";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // Classe pour les liens (Texte blanc sur fond vert, avec effet hover)
   const linkClass = ({ isActive }) =>
     isActive
-      ? "text-[#1F7A5A] font-semibold"
-      : "text-gray-700 hover:text-[#1F7A5A] transition";
+      ? "text-white font-bold border-b-2 border-white pb-1"
+      : "text-white/90 hover:text-white hover:font-semibold transition pb-1";
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-    
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-14 py-4 flex items-center justify-between">
+    // 1. Le header a maintenant un fond VERT par défaut (pour la partie droite)
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#4F7A28] shadow-md h-20">
+      
+      {/* 2. LA FORME BLANCHE EN BIAIS (Background blanc trapézoïdal) */}
+      {/* - absolute : se place par dessus le fond vert
+          - w-[65%] md:w-[45%] : largeur de la zone blanche selon l'écran
+          - clip-path : Crée la découpe en diagonale
+      */}
+      <div 
+        className="absolute top-0 left-0 h-full w-[70%] sm:w-[50%] md:w-[40%] lg:w-[35%] bg-white z-0"
+        style={{ clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)" }}
+      ></div>
+
+      {/* Conteneur principal du contenu (z-10 pour être au-dessus du fond) */}
+      <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center justify-between pr-6">
         
-        {/* LOGO */}
-        <NavLink to="/">
-          <img src="/globalreno.png" alt="Global Reno" className="h-20" />
-        </NavLink>
-
-        {/* NAV DESKTOP */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          <NavLink to="/prestations" className={linkClass}>
-            Prestations
+        {/* LOGO (Zone Blanche) */}
+        {/* J'ai ajouté 'pl-6 md:pl-12 lg:pl-24' pour décoller le logo du bord gauche */}
+        <div className="pl-6 md:pl-12 lg:pl-24 h-full flex items-center">
+          <NavLink to="/">
+            <img src="/globalreno.png" alt="Global Reno" className="h-14 md:h-16" />
           </NavLink>
+        </div>
 
-          <NavLink to="/secteurs" className={linkClass}>
-            Secteurs
+        {/* NAV DESKTOP (Zone Verte) */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <NavLink to="/" className={linkClass}>
+            Accueil
+          </NavLink>
+          
+          <NavLink to="/prestations" className={linkClass}>
+            Nos Services
           </NavLink>
 
           <NavLink to="/realisations" className={linkClass}>
@@ -37,23 +53,17 @@ export default function Header() {
             Contact
           </NavLink>
 
-          {/* CTA */}
-          <NavLink
-            to="/devis"
-            className="ml-4 bg-[#1F7A5A] text-white px-5 py-2 rounded-md hover:bg-[#166A4C] transition"
-          >
-            Demander un devis
-          </NavLink>
+          
         </nav>
 
-        {/* BURGER */}
+        {/* BURGER MOBILE (Zone Verte) */}
         <button
-          className="md:hidden text-gray-800"
+          className="md:hidden text-white"
           onClick={() => setOpen(!open)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
+            className="h-8 w-8"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -68,46 +78,27 @@ export default function Header() {
         </button>
       </div>
 
-      {/* NAV MOBILE */}
+      {/* NAV MOBILE (Dropdown) */}
       {open && (
-        <div className="md:hidden bg-white border-t">
-          <nav className="flex flex-col px-6 py-4 gap-4 text-sm">
-            <NavLink
-              to="/prestations"
-              className={linkClass}
-              onClick={() => setOpen(false)}
-            >
-              Prestations
+        <div className="md:hidden bg-[#4F7A28] border-t border-white/20 absolute w-full left-0 top-20 shadow-xl">
+          <nav className="flex flex-col px-6 py-6 gap-6 text-white text-lg font-medium">
+            <NavLink to="/" onClick={() => setOpen(false)}>
+              Accueil
             </NavLink>
-
-            <NavLink
-              to="/secteurs"
-              className={linkClass}
-              onClick={() => setOpen(false)}
-            >
-              Secteurs
+            <NavLink to="/prestations" onClick={() => setOpen(false)}>
+              Nos Services
             </NavLink>
-
-            <NavLink
-              to="/realisations"
-              className={linkClass}
-              onClick={() => setOpen(false)}
-            >
+           
+            <NavLink to="/realisations" onClick={() => setOpen(false)}>
               Réalisations
             </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={linkClass}
-              onClick={() => setOpen(false)}
-            >
+            <NavLink to="/contact" onClick={() => setOpen(false)}>
               Contact
             </NavLink>
-
             <NavLink
               to="/devis"
               onClick={() => setOpen(false)}
-              className="mt-2 bg-[#1F7A5A] text-white text-center px-4 py-2 rounded-md hover:bg-[#166A4C]"
+              className="bg-white text-[#4F7A28] text-center px-4 py-2 rounded font-bold"
             >
               Demander un devis
             </NavLink>

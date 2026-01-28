@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function PrestationsCards() {
   return (
     <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl  mx-auto px-6">
 
         {/* TITRE */}
         <div className="text-center max-w-3xl mx-auto">
@@ -22,7 +22,7 @@ export default function PrestationsCards() {
           {/* CARD 1 */}
           <div className="group bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
             <img
-              src="/images/peinture-pro.jpg"
+              src="/peinture-pro.png"
               alt="Peinture professionnelle bâtiment"
               className="h-56 w-full object-cover group-hover:scale-105 transition duration-300"
             />
