@@ -41,7 +41,7 @@ export default function Header() {
             Accueil
           </NavLink>
           
-          <NavLink to="/prestations" className={linkClass}>
+          <NavLink to="/services" className={linkClass}>
             Nos Services
           </NavLink>
 
@@ -85,7 +85,7 @@ export default function Header() {
             <NavLink to="/" onClick={() => setOpen(false)}>
               Accueil
             </NavLink>
-            <NavLink to="/prestations" onClick={() => setOpen(false)}>
+            <NavLink to="/services" onClick={() => setOpen(false)}>
               Nos Services
             </NavLink>
            

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function HeroPrestation() {
   return (
-    <section className="relative h-[70vh] min-h-[500px] w-full">
+    <section className="relative h-[70vh] mt-20 mmin-h-[500px] w-full">
       
       {/* IMAGE */}
       <img

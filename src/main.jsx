@@ -7,6 +7,7 @@ import "./App.css";
 
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
+import Services from "./Pages/Services";
 
 const router = createBrowserRouter([
   // -------------------------
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+   {
+    path: "/services",
+    element: <Services />,
   },
 ]);
 
