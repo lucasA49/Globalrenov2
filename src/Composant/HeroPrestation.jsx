@@ -34,7 +34,7 @@ export default function HeroPrestation() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <NavLink
-              to="/devis"
+              to="/contact"
               className="bg-white text-[#1F7A5A] px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition"
             >
               Demander un devis

@@ -50,7 +50,7 @@ export default function PrestationsCards() {
           {/* CARD 2 */}
           <div className="group bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
             <img
-              src="/images/ravalement-facade.jpg"
+              src="/facade.png"
               alt="Ravalement de façade professionnel"
               className="h-56 w-full object-cover group-hover:scale-105 transition duration-300"
             />
