@@ -8,6 +8,7 @@ import "./App.css";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import Services from "./Pages/Services";
+import Realisation from "./Pages/Realisation";
 
 const router = createBrowserRouter([
   // -------------------------
@@ -25,6 +26,9 @@ const router = createBrowserRouter([
    {
     path: "/services",
     element: <Services />,
+  }, {
+    path: "/realisations",
+    element: <Realisation/>,
   },
 ]);
 

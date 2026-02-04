@@ -5,6 +5,7 @@ import ValeursIcons from "../Composant/ValeursIcons";
 import CTAImages from "../Composant/CTAImages";
 import Footer from "../Composant/Footer";
 import ContactSection from "../Composant/ContactSection";
+import TrustAndProcessSection from "../Composant/TrustAndProcessSection";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
       <PrestationsCards />
       <ValeursIcons />
         <CTAImages />
+        <TrustAndProcessSection/>
         <ContactSection />
         <Footer />
     </>
