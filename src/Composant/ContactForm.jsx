@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, User, Mail, Phone, MessageSquare, Tag } from 'lucide-react';
+import emailjs from '@emailjs/browser'; // 1. Import d'EmailJS
 
 const ContactForm = () => {
   // État pour gérer les données du formulaire
@@ -11,7 +12,7 @@ const ContactForm = () => {
     message: ''
   });
 
-  // État pour gérer l'envoi (simulation)
+  // État pour gérer l'envoi
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
@@ -21,42 +22,56 @@ const ContactForm = () => {
   };
 
   // Gestion de la soumission du formulaire
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulation d'envoi de données à une API
-    try {
-      console.log("Données envoyées:", formData);
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
-      
-      // Simulation d'un délai réseau
-      setTimeout(() => {
+    setSubmitStatus(null);
+
+    // 2. Configuration EmailJS
+    const serviceID = 'service_9kofzwn';   // Remplace par ton Service ID
+    const templateID = 'template_t2h9wro'; // Remplace par ton Template ID
+    const publicKey = '2-rIsdkp_jIJdCDjy';   // Remplace par ta Public Key
+
+    // Préparation des variables pour le template
+    // Les clés ici (nom, email, etc.) doivent correspondre aux {{variables}} dans ton template EmailJS
+    const templateParams = {
+      full_name: formData.nom,
+      email: formData.email,
+      phone_number: formData.telephone,
+      subject: formData.sujet,
+      message_content: formData.message,
+    };
+
+    // 3. Envoi via EmailJS
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
         setSubmitStatus('success');
         setIsSubmitting(false);
+        
         // Reset du formulaire après succès
         setFormData({ nom: '', email: '', telephone: '', sujet: '', message: '' });
+        
         // Effacer le message de succès après 5 secondes
         setTimeout(() => setSubmitStatus(null), 5000);
-      }, 1500);
-
-    } catch (error) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-    }
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+      });
   };
 
-  // Classes Tailwind réutilisables pour le style des inputs
+  // Classes Tailwind réutilisables
   const labelClass = "flex items-center gap-2 text-sm font-medium text-gray-700 mb-2";
   const inputWrapperClass = "relative";
-  // Notez l'utilisation de focus:border-[#1F7A5A] et focus:ring-[#1F7A5A] pour utiliser votre couleur de marque
   const inputClass = "w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 transition-all duration-200 ease-in-out focus:bg-white focus:border-[#1F7A5A] focus:ring-2 focus:ring-[#1F7A5A]/20 outline-none";
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-4xl mt-20 mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* En-tête du formulaire */}
+        {/* En-tête */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Parlons de votre projet
@@ -73,13 +88,13 @@ const ContactForm = () => {
           {submitStatus === 'success' && (
             <div className="mb-8 p-4 bg-green-50 border-l-4 border-[#1F7A5A] text-green-800 rounded-r-lg">
               <p className="font-medium">Message envoyé avec succès !</p>
-              <p className="text-sm">Merci de nous avoir contactés. Nous revenons vers vous très vite.</p>
+              <p className="text-sm">Merci de nous avoir contactés. Un email de confirmation vous a été envoyé.</p>
             </div>
           )}
           {submitStatus === 'error' && (
             <div className="mb-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 rounded-r-lg">
               <p className="font-medium">Une erreur est survenue.</p>
-              <p className="text-sm">Veuillez réessayer plus tard ou nous contacter directement par téléphone.</p>
+              <p className="text-sm">Veuillez vérifier votre connexion ou nous contacter directement par téléphone.</p>
             </div>
           )}
 
@@ -157,15 +172,15 @@ const ContactForm = () => {
                   style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: `right 1rem center`, backgroundRepeat: `no-repeat`, backgroundSize: `1.5em 1.5em`}}
                 >
                   <option value="" disabled>Sélectionnez un sujet</option>
-                  <option value="devis">Demande de devis</option>
-                  <option value="information">Demande d'information</option>
-                  <option value="partenariat">Proposition de partenariat</option>
-                  <option value="autre">Autre</option>
+                  <option value="Devis">Demande de devis</option>
+                  <option value="Information">Demande d'information</option>
+                  <option value="Partenariat">Proposition de partenariat</option>
+                  <option value="Autre">Autre</option>
                 </select>
               </div>
             </div>
 
-            {/* Champ Message (prend toute la largeur) */}
+            {/* Champ Message */}
             <div className="md:col-span-2">
               <label htmlFor="message" className={labelClass}>
                 <MessageSquare className="w-4 h-4 text-[#1F7A5A]" /> Votre message *
@@ -184,7 +199,7 @@ const ContactForm = () => {
               </div>
             </div>
 
-            {/* Bouton de soumission et mention légale */}
+            {/* Bouton */}
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
@@ -207,7 +222,7 @@ const ContactForm = () => {
                 )}
               </button>
               <p className="text-xs text-gray-500 mt-4 text-center md:text-left">
-                En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées dans le cadre de votre demande et de la relation commerciale qui peut en découler.
+                En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées dans le cadre de votre demande.
               </p>
             </div>
 

@@ -11,7 +11,7 @@ const ImpactSection = () => {
   };
 
   return (
-    <section className="bg-white pb-20 pt-10">
+    <section className="bg-white pb-0 pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* --- TITRE SECTION --- */}
@@ -108,8 +108,8 @@ const ImpactSection = () => {
       {/* --- BANNIÈRE CTA (Appel à l'action) --- */}
       <div className="w-full bg-gradient-to-r from-green-500 to-[#1F7A5A] py-16 px-4 relative overflow-hidden">
         {/* Cercles décoratifs en arrière-plan */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white opacity-5 rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-white opacity-5 rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 right-0 -mr-20 -mt-0 w-96 h-96 bg-white opacity-5 rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-0 w-64 h-64 bg-white opacity-5 rounded-full pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
