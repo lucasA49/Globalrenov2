@@ -11,8 +11,7 @@ export default function PrestationsCards() {
             Nos prestations
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Des solutions de rénovation et d’isolation adaptées aux exigences
-            des professionnels.
+            Des solutions de rénovation et d’isolation sur mesure, pour professionnels et particuliers.
           </p>
         </div>
 

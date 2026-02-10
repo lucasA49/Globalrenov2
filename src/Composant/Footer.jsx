@@ -13,9 +13,7 @@ export default function Footer() {
             GLOBAL <span className="text-white/90">RENO</span>
           </h3>
           <p className="mt-4 text-sm text-white/90 leading-relaxed">
-            Entreprise spécialisée en rénovation, ravalement de façade
-            et isolation thermique extérieure pour les professionnels.
-          </p>
+Entreprise spécialisée en rénovation, peinture, ravalement de façade et isolation thermique par l’extérieur pour les professionnels et les particuliers.          </p>
         </div>
 
         {/* PRESTATIONS */}
@@ -45,8 +43,8 @@ export default function Footer() {
           <h4 className="font-semibold mb-4">Navigation</h4>
           <ul className="space-y-2 text-sm text-white/90">
             <li>
-              <NavLink to="/prestations" className="hover:underline">
-                Prestations
+              <NavLink to="/services" className="hover:underline">
+                Services
               </NavLink>
             </li>
             <li>
@@ -59,11 +57,6 @@ export default function Footer() {
                 Contact
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/devis" className="hover:underline">
-                Demander un devis
-              </NavLink>
-            </li>
           </ul>
         </div>
 
@@ -71,13 +64,13 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-2 text-sm text-white/90">
-            <li>📍 France</li>
+            <li>📍 20 Rue du Champ Blanc, 49280 Mazières-en-Mauges</li>
             <li>📞 06 XX XX XX XX</li>
-            <li>✉️ contact@global-reno.fr</li>
+            <li>✉️  globalreno49@gmail.com</li>
             <li className="pt-3 text-xs">
-              Intervention exclusivement
+              Intervention pour
               <br />
-              pour les professionnels
+              pour les professionnels et les particuliers.
             </li>
           </ul>
         </div>

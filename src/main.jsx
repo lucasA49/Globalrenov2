@@ -3,39 +3,20 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
-// Pages publiques
-
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import Services from "./Pages/Services";
 import Realisation from "./Pages/Realisation";
 
 const router = createBrowserRouter([
-  // -------------------------
-  // PAGES PUBLIQUES
-  // -------------------------
-
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-   {
-    path: "/services",
-    element: <Services />,
-  }, {
-    path: "/realisations",
-    element: <Realisation/>,
-  },
+  { path: "/", element: <Home /> },
+  { path: "/contact", element: <Contact /> },
+  { path: "/services", element: <Services /> },
+  { path: "/realisations", element: <Realisation /> },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 );

@@ -22,14 +22,12 @@ export default function HeroPrestation() {
     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
       Rénovation & Isolation
       <span className="block text-white">
-        pour les professionnels
+       pour pros & particuliers
       </span>
     </h1>
 
     <p className="mt-6 text-lg text-white font-medium max-w-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-      Global Reno accompagne les entreprises, syndics et collectivités
-      dans leurs projets de rénovation, ravalement et isolation
-      thermique extérieure.
+    Global Reno accompagne entreprises, collectivités, syndics et particuliers dans leurs projets de rénovation, ravalement et isolation thermique par l’extérieur.
     </p> 
 
           <div className="mt-8 flex flex-wrap gap-4">
