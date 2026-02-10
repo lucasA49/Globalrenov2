@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, CheckCircle, ArrowRight, Phone } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const ImpactSection = () => {
   // État pour gérer la position du slider (0 à 100)
@@ -121,16 +122,19 @@ const ImpactSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Bouton Principal */}
-            <button className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold shadow-lg hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 group">
+            <NavLink to="/contact" className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold shadow-lg hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 group">
               DEMANDER UN AUDIT GRATUIT
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </NavLink>
 
             {/* Bouton Secondaire */}
-            <button className="px-8 py-4 bg-white text-green-700 rounded-full font-bold shadow-md hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
-              <Phone className="w-5 h-5 fill-current" />
-              CONTACTER L'ÉQUIPE PRO
-            </button>
+           <a 
+          href="tel:+33123456789" 
+          className="px-8 py-4 bg-white text-green-700 rounded-full font-bold shadow-md hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
+          >
+          <Phone className="w-5 h-5 fill-current" />
+          CONTACTER L'ÉQUIPE PRO
+          </a>
           </div>
         </div>
       </div>
