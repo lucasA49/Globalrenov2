@@ -50,7 +50,7 @@ const ContactSection = () => {
                   <Phone className="w-6 h-6 text-[#556B2F]" fill="#556B2F" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-700">Téléphone : <span className="font-normal text-gray-600">06 12 34 56 78</span></p>
+                  <p className="text-sm font-semibold text-gray-700">Téléphone : <span className="font-normal text-gray-600">06 82 31 24 59</span></p>
                 </div>
               </div>
 
@@ -60,7 +60,7 @@ const ContactSection = () => {
                   <Mail className="w-6 h-6 text-[#556B2F]" fill="#556B2F" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-700">Email : <a href="mailto:contact@globalreno.fr" className="font-normal text-gray-600 hover:underline">contact@globalreno.fr</a></p>
+                  <p className="text-sm font-semibold text-gray-700">Email : <a href="mailto:globalreno49@gmail.com" className="font-normal text-gray-600 hover:underline">globalreno49@gmail.com</a></p>
                 </div>
               </div>
 
@@ -71,7 +71,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-gray-700">Zone d'intervention:</p>
-                  <p className="text-sm font-normal text-gray-600">Secteur régional</p>
+                  <p className="text-sm font-normal text-gray-600">Grand Ouest</p>
                 </div>
               </div>
 

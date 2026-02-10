@@ -65,7 +65,7 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-2 text-sm text-white/90">
             <li>📍 20 Rue du Champ Blanc, 49280 Mazières-en-Mauges</li>
-            <li>📞 06 XX XX XX XX</li>
+            <li>📞 06 82 31 24 59</li>
             <li>✉️  globalreno49@gmail.com</li>
             <li className="pt-3 text-xs">
               Intervention pour

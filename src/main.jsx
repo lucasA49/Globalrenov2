@@ -7,12 +7,13 @@ import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import Services from "./Pages/Services";
 import Realisation from "./Pages/Realisation";
-
+import Cgv from "./Pages/Cgv";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/contact", element: <Contact /> },
   { path: "/services", element: <Services /> },
   { path: "/realisations", element: <Realisation /> },
+  { path: "/mentions-legales", element: <Cgv /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

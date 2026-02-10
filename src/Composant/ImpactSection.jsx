@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, CheckCircle, ArrowRight, Phone } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom'
 const ImpactSection = () => {
   // État pour gérer la position du slider (0 à 100)
   const [sliderPosition, setSliderPosition] = useState(50);
