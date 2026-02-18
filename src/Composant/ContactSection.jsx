@@ -5,11 +5,11 @@ const ContactSection = () => {
   return (
     <section className="relative w-full">
       {/* Image de fond avec superposition verte */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute  inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop" 
+          src="/contact.png" 
           alt="Handshake background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full pb-12 object-cover"
         />
         {/* Filtre vert pour matcher l'image originale */}
         <div className="absolute inset-0 bg-lime-900/70 mix-blend-multiply"></div>

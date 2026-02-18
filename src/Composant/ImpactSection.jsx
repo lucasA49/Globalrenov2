@@ -86,13 +86,13 @@ const ImpactSection = () => {
             <div className="flex-shrink-0">
               <img 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop" 
-                alt="Sophie Dubois" 
+                alt="Aliciya " 
                 className="w-20 h-20 rounded-full object-cover border-4 border-green-50 shadow-md"
               />
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                <h4 className="font-bold text-gray-900 text-lg">Sophie Dubois</h4>
+                <h4 className="font-bold text-gray-900 text-lg">Aliciya</h4>
                 <span className="text-gray-400 text-sm">|</span>
                 <p className="text-green-600 font-medium text-sm">PDG "ImmoTech Solutions"</p>
               </div>
