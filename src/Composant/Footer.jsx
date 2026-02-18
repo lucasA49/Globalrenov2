@@ -21,19 +21,13 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <h4 className="font-semibold mb-4">Prestations</h4>
           <ul className="space-y-2 text-sm text-white/90">
             <li>
-              <NavLink to="/prestations/peinture" className="hover:underline">
                 Peinture intérieure & extérieure
-              </NavLink>
             </li>
             <li>
-              <NavLink to="/prestations/ravalement" className="hover:underline">
                 Ravalement & enduit de façade
-              </NavLink>
             </li>
             <li>
-              <NavLink to="/prestations/isolation-exterieure" className="hover:underline">
                 Isolation thermique extérieure
-              </NavLink>
             </li>
           </ul>
         </div>
@@ -85,9 +79,6 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <div className="flex gap-4 mt-3 md:mt-0">
             <NavLink to="/mentions-legales" className="hover:underline">
               Mentions légales
-            </NavLink>
-            <NavLink to="/politique-confidentialite" className="hover:underline">
-              Confidentialité
             </NavLink>
           </div>
         </div>

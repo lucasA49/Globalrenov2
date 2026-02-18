@@ -1,12 +1,13 @@
 import React from 'react';
 import { MessageCircle, ThumbsUp, Leaf, Briefcase, Users, Award } from 'lucide-react';
 
+
 // Données des projets (à remplacer par vos vraies données et images)
 const projects = [
   {
     id: 1,
     title: "Rénovation Façade & ITE - Immeuble Parisien",
-    image: "https://images.unsplash.com/photo-1469022563328-4444306d27d2?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/facadeserv.png",
     year: "2025",
     location: "Paris 15e",
     surface: "2500 m²",
@@ -16,7 +17,7 @@ const projects = [
   {
     id: 2,
     title: "Peinture Intérieure Écologique - Siège Social Tech",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https:/-6870744d04b2?q=80&w=2669&auto=forma=rb-4.0.3&i3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     year: "2025",
     location: "Lyon",
     surface: "1200 m²",
@@ -39,7 +40,6 @@ const projects = [
 const stats = [
   { icon: Briefcase, number: "500+", label: "Projets Réalisés" },
   { icon: Users, number: "98%", label: "Clients Satisfaits" },
-  { icon: Award, number: "15 Ans", label: "d'Expertise" },
 ];
 
 export default function RealizationsSection() {
@@ -91,10 +91,7 @@ export default function RealizationsSection() {
                   </p>
                 </div>
 
-                {/* Bouton */}
-                <button className="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-full shadow-md hover:from-green-600 hover:to-green-700 transition-all hover:shadow-lg active:scale-[0.98]">
-                  Voir l'étude de cas
-                </button>
+                
               </div>
             </div>
           ))}

@@ -12,7 +12,7 @@ const servicesData = [
     anchor: "service-1", // Doit matcher le NavLink (to="/services#service-1")
     title: "Peinture intérieure & extérieure",
     description: "Donnez vie à vos espaces avec nos services de peinture haut de gamme.",
-    imageSrc: "/api/placeholder/800/600", 
+    imageSrc: "/peintureextint.png", 
     checklist: ["Protection durable", "Valorisation du bien", "Finitions parfaites"],
     benefits: [
       { icon: ShieldCheck, text: "Protection durable", color: "text-green-600" },
@@ -25,7 +25,7 @@ const servicesData = [
     anchor: "service-2",
     title: "Ravalement & enduit de façade",
     description: "Protégez votre structure contre les intempéries et redonnez-lui son éclat.",
-    imageSrc: "/api/placeholder/800/600", 
+    imageSrc: "/facadeserv.png", 
     checklist: ["Traitement curatif", "Imperméabilisation", "Respect du bâti"],
     benefits: [
       { icon: BrickWall, text: "Renfort", color: "text-orange-600" },
@@ -38,7 +38,7 @@ const servicesData = [
     anchor: "service-3",
     title: "Isolation thermique extérieure",
     description: "Réduisez vos factures d'énergie et améliorez votre confort thermique.",
-    imageSrc: "/api/placeholder/800/600", 
+    imageSrc: "/iteserv.png", 
     checklist: ["Zéro ponts thermiques", "Gain de confort", "Éligible aides État"],
     benefits: [
       { icon: Coins, text: "Économies", color: "text-yellow-600" },

@@ -9,7 +9,7 @@ export default function HeroServices() {
       
       {/* IMAGE DE FOND */}
       <img
-        src="/banniere-services.png" 
+        src="/bannerserv.png" 
         alt="Nos Services de rénovation"
         className="absolute inset-0 w-full  h-full object-cover"
       />
