@@ -6,39 +6,39 @@ import { MessageCircle, ThumbsUp, Leaf, Briefcase, Users, Award } from 'lucide-r
 const projects = [
   {
     id: 1,
-    title: "Rénovation Façade & ITE - Immeuble Parisien",
+    title: "Rénovation Façade ",
     image: "/facadeserv.png",
     year: "2025",
-    location: "Paris 15e",
-    surface: "2500 m²",
+    location: "Grand Ouest",
+    surface: "300 m²",
     testimonialIcon: MessageCircle,
-    testimonialText: "Témoignage Client: \"Transformation spectaculaire, économies d'énergie majeures.\" - Syndic de copropriété",
+    testimonialText: "Témoignage Client: \"Transformation spectaculaire, économies d'énergie majeures.",
   },
   {
     id: 2,
-    title: "Peinture Intérieure Écologique - Siège Social Tech",
-    image: "https:/-6870744d04b2?q=80&w=2669&auto=forma=rb-4.0.3&i3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Peinture Intérieure ",
+    image: "/peinture-pro.png",
     year: "2025",
-    location: "Lyon",
-    surface: "1200 m²",
+    location: "Grand ouest",
+    surface: "240 m²",
     testimonialIcon: ThumbsUp,
-    testimonialText: "Résultat: +40% de luminosité, qualité de l'air améliorée. Certification LEED Gold.",
+    testimonialText: "Résultat: +40% de luminosité, qualité de l'air améliorée. Certification LEED GoldPlus qu'une simple peinture, c'est un véritable soin pour nos espaces. Luminosité décuplée, finitions impeccables et une certification environnementale qui prouve notre engagement pour la santé de nos collaborateurs.",
   },
   {
     id: 3,
-    title: "Isolation Thermique Extérieure - Entrepôt Logistique",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Isolation Thermique Extérieure ",
+    image: "/ite.png",
     year: "2024",
-    location: "Lille",
-    surface: "5000 m²",
+    location: "Grand Ouest",
+    surface: "600 m²",
     testimonialIcon: Leaf,
-    testimonialText: "Impact: Réduction de 30% des coûts de chauffage. Retour sur investissement en 5 ans.",
+    testimonialText: "L'alliance parfaite de la technique et de l'économie. Le confort est total dès le premier hiver, avec une baisse de 30% des dépenses énergétiques. Un projet maîtrisé de A à Z dont la rentabilité est assurée en 5 ans.",
   },
 ];
 
 // Données des statistiques
 const stats = [
-  { icon: Briefcase, number: "500+", label: "Projets Réalisés" },
+  { icon: Briefcase, number: "280+", label: "Projets Réalisés" },
   { icon: Users, number: "98%", label: "Clients Satisfaits" },
 ];
 

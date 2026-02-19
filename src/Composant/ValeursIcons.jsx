@@ -10,7 +10,7 @@ export default function ValeursIcons() {
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Une approche professionnelle, durable et conforme aux exigences
-            des chantiers B2B.
+            des chantiers .
           </p>
         </div>
 
