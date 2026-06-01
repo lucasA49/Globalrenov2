@@ -53,7 +53,9 @@ export default function Header() {
             Contact
           </NavLink>
 
-          
+          <NavLink to="/blog" className={linkClass}>
+            Blog
+          </NavLink>
         </nav>
 
         {/* BURGER MOBILE (Zone Verte) */}
@@ -94,6 +96,9 @@ export default function Header() {
             </NavLink>
             <NavLink to="/contact" onClick={() => setOpen(false)}>
               Contact
+            </NavLink>
+            <NavLink to="/blog" onClick={() => setOpen(false)}>
+              Blog
             </NavLink>
             <NavLink
               to="/devis"

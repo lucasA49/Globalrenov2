@@ -51,6 +51,11 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
                 Contact
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/blog" className="hover:underline">
+                Blog
+              </NavLink>
+            </li>
           </ul>
         </div>
 
@@ -79,6 +84,9 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <div className="flex gap-4 mt-3 md:mt-0">
             <NavLink to="/mentions-legales" className="hover:underline">
               Mentions légales
+            </NavLink>
+            <NavLink to="/admin/login" className="hover:underline text-white/40 hover:text-white/70 transition-colors">
+              Admin
             </NavLink>
           </div>
         </div>
