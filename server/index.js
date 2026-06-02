@@ -11,12 +11,14 @@ const articlesRoutes = require('./routes/articles');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
-const isProd = process.env.NODE_ENV === 'production';
+const fs = require('fs');
+const distPath = path.join(__dirname, '../dist');
+const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
 
-// En prod, frontend et backend sont sur le même domaine — pas de CORS nécessaire
-// En dev, on autorise Vite dev server
+// Si dist/ existe on est en prod (même domaine) → pas de CORS
+// Sinon on est en dev → on autorise Vite dev server
 app.use(cors({
-  origin: isProd ? false : (process.env.CLIENT_URL || 'http://localhost:5173'),
+  origin: hasDist ? false : (process.env.CLIENT_URL || 'http://localhost:5173'),
   credentials: true,
 }));
 
@@ -80,14 +82,10 @@ app.get('/sitemap.xml', (_req, res) => {
   res.send(xml);
 });
 
-// Production : servir le frontend React buildé
-if (isProd) {
-  const distPath = path.join(__dirname, '../dist');
+// Servir le frontend React si dist/ est buildé (prod)
+if (hasDist) {
   app.use(express.static(distPath));
-  // SPA fallback — toutes les routes non-API renvoient index.html
-  app.get('*', (_req, res) => {
-    res.sendFile(path.join(distPath, 'index.html'));
-  });
+  app.get('*', (_req, res) => res.sendFile(path.join(distPath, 'index.html')));
 }
 
 const PORT = process.env.PORT || 5001;
