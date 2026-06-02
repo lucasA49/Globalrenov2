@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../config/db');
 const protect = require('../middleware/protect');
-const upload = require('../middleware/upload');
+const { upload, convertToWebp } = require('../middleware/upload');
 const { generateId, generateSlug, rowToArticle } = require('../lib/helpers');
 
 const router = express.Router();
@@ -99,7 +99,7 @@ router.delete('/articles/:id', (req, res) => {
 });
 
 // POST /api/admin/upload — upload image
-router.post('/upload', upload.single('image'), (req, res) => {
+router.post('/upload', upload.single('image'), convertToWebp, (req, res) => {
   if (!req.file) return res.status(400).json({ message: 'Aucun fichier reçu' });
   const url = `${process.env.API_URL || 'http://localhost:5001'}/uploads/${req.file.filename}`;
   res.json({ url, filename: req.file.filename });

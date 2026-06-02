@@ -36,5 +36,46 @@ app.use('/api/admin', adminRoutes);
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', db: 'SQLite', timestamp: new Date() }));
 
+// Sitemap dynamique — pages statiques + tous les articles publiés
+app.get('/sitemap.xml', (_req, res) => {
+  const db = require('./config/db');
+  const SITE = process.env.SITE_URL || 'https://globalreno-renovation.fr';
+
+  const staticPages = [
+    { loc: `${SITE}/`, priority: '1.0', changefreq: 'weekly' },
+    { loc: `${SITE}/services`, priority: '0.8', changefreq: 'monthly' },
+    { loc: `${SITE}/realisations`, priority: '0.8', changefreq: 'monthly' },
+    { loc: `${SITE}/contact`, priority: '0.7', changefreq: 'yearly' },
+    { loc: `${SITE}/blog`, priority: '0.9', changefreq: 'daily' },
+  ];
+
+  const articles = db.prepare(
+    'SELECT slug, updated_at FROM articles WHERE published = 1 ORDER BY updated_at DESC'
+  ).all();
+
+  const urlTags = [
+    ...staticPages.map(({ loc, priority, changefreq }) => `
+  <url>
+    <loc>${loc}</loc>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`),
+    ...articles.map(({ slug, updated_at }) => `
+  <url>
+    <loc>${SITE}/blog/${slug}</loc>
+    <lastmod>${updated_at ? updated_at.slice(0, 10) : new Date().toISOString().slice(0, 10)}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`),
+  ].join('');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urlTags}
+</urlset>`;
+
+  res.set('Content-Type', 'application/xml');
+  res.send(xml);
+});
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Global Réno API → http://localhost:${PORT}`));
