@@ -4,22 +4,25 @@ import Footer from "../Composant/Footer";
 import ImpactSection from "../Composant/ImpactSection";
 import RealizationsBannerDesktop from "../Composant/RealizationsBannerDesktop";
 
+const SITE = 'https://globalreno-renovation.fr';
+
 export default function Realisation() {
   return (
     <>
-      {/* --- SEO : Prouver l'expertise --- */}
-      <title>Nos Réalisations | Projets de Rénovation Global Reno</title>
-      <meta name="description" content="Découvrez nos derniers chantiers de rénovation. Avant/Après, isolation thermique et aménagements réalisés par Global Reno. La preuve de notre savoir-faire en images." />
-      
-      {/* Balises Open Graph pour le partage (ex: montrer tes travaux sur LinkedIn) */}
-      <meta property="og:title" content="Découvrez les chantiers de Global Reno" />
-      <meta property="og:type" content="portfolio" />
+      <title>Nos Réalisations | Chantiers de Rénovation à Cholet — Global Réno</title>
+      <meta name="description" content="Découvrez nos chantiers de rénovation avant/après à Cholet et dans le Maine-et-Loire. Toiture, façade, isolation thermique réalisés par Global Réno." />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={`${SITE}/realisations`} />
+
+      <meta property="og:title" content="Réalisations Global Réno — Chantiers à Cholet" />
+      <meta property="og:description" content="Avant/après : toiture, façade, isolation. La preuve de notre savoir-faire en images." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${SITE}/realisations`} />
+      <meta property="og:image" content={`${SITE}/apresfacade.jpg`} />
+      <meta property="og:site_name" content="Global Réno" />
 
       <Header />
       <main>
-        {/* On ajoute un titre H1 explicite pour les moteurs de recherche */}
-        <h1 style={{ display: 'none' }}>Nos projets de rénovation globale et énergétique</h1>
-        
         <RealizationsBannerDesktop />
         <RealizationsSection />
         <ImpactSection />

@@ -114,7 +114,7 @@ const ImpactSection = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </NavLink>
             <a 
-              href="tel:+33123456789" 
+              href="tel:+33682312459"
               className="px-8 py-4 bg-white text-green-700 rounded-full font-bold shadow-md hover:bg-gray-50 transition-all flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />

@@ -12,7 +12,7 @@ const CATEGORY_LABELS = {
   renovation: 'Rénovation', entretien: 'Entretien', conseils: 'Conseils',
 };
 
-const SITE_URL = 'https://globalreno.fr';
+const SITE_URL = 'https://globalreno-renovation.fr';
 
 export default function BlogArticle() {
   const { slug } = useParams();

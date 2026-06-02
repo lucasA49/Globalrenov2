@@ -54,10 +54,13 @@ export default function BlogList() {
         <title>Blog Rénovation Cholet — Conseils & Guides | Global Réno</title>
         <meta name="description" content="Découvrez nos conseils et guides pour rénover votre toiture, ravalement de façade, isolation thermique à Cholet et dans le Maine-et-Loire." />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://globalreno.fr/blog" />
+        <link rel="canonical" href="https://globalreno-renovation.fr/blog" />
         <meta property="og:title" content="Blog Rénovation Cholet | Global Réno" />
         <meta property="og:description" content="Conseils rénovation, toiture, façade et isolation pour particuliers et professionnels à Cholet." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://globalreno-renovation.fr/blog" />
+        <meta property="og:image" content="https://globalreno-renovation.fr/globalreno.png" />
+        <meta property="og:site_name" content="Global Réno" />
       </Helmet>
 
       <Header />
