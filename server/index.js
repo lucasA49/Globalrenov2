@@ -11,9 +11,12 @@ const articlesRoutes = require('./routes/articles');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
+const isProd = process.env.NODE_ENV === 'production';
 
+// En prod, frontend et backend sont sur le même domaine — pas de CORS nécessaire
+// En dev, on autorise Vite dev server
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: isProd ? false : (process.env.CLIENT_URL || 'http://localhost:5173'),
   credentials: true,
 }));
 
@@ -77,5 +80,15 @@ app.get('/sitemap.xml', (_req, res) => {
   res.send(xml);
 });
 
+// Production : servir le frontend React buildé
+if (isProd) {
+  const distPath = path.join(__dirname, '../dist');
+  app.use(express.static(distPath));
+  // SPA fallback — toutes les routes non-API renvoient index.html
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`🚀 Global Réno API → http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Global Réno → http://localhost:${PORT}`));

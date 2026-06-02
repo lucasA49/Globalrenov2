@@ -16,7 +16,7 @@ const CATEGORY_COLORS = {
 };
 
 export default function ArticleCard({ article }) {
-  const API_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5001';
+  const API_URL = import.meta.env.VITE_API_URL?.replace('/api', '') ?? '';
 
   return (
     <Link
