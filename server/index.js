@@ -4,7 +4,20 @@ const cors = require('cors');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 
-require('./config/db'); // initialise SQLite
+const db = require('./config/db'); // initialise SQLite
+
+// Créer l'admin au premier démarrage si la table est vide
+(function seedAdmin() {
+  const bcrypt = require('bcryptjs');
+  const email = (process.env.ADMIN_EMAIL || 'admin@globalreno.fr').toLowerCase();
+  const password = process.env.ADMIN_PASSWORD || 'GlobalReno2024!';
+  const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email);
+  if (!existing) {
+    const hash = bcrypt.hashSync(password, 12);
+    db.prepare('INSERT INTO users (email, password, name) VALUES (?, ?, ?)').run(email, hash, 'Admin Global Réno');
+    console.log('✅ Admin créé :', email);
+  }
+})();
 
 const authRoutes = require('./routes/auth');
 const articlesRoutes = require('./routes/articles');
