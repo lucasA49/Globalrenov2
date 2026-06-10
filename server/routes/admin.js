@@ -101,7 +101,7 @@ router.delete('/articles/:id', (req, res) => {
 // POST /api/admin/upload — upload image
 router.post('/upload', upload.single('image'), convertToWebp, (req, res) => {
   if (!req.file) return res.status(400).json({ message: 'Aucun fichier reçu' });
-  const url = `${process.env.API_URL || 'http://localhost:5001'}/uploads/${req.file.filename}`;
+  const url = `${process.env.BACKEND_URL || process.env.API_URL || 'http://localhost:5001'}/uploads/${req.file.filename}`;
   res.json({ url, filename: req.file.filename });
 });
 
