@@ -1,29 +1,33 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 const express = require('express');
+require('express-async-errors'); // erreurs des routes async → réponse 500 au lieu d'un crash
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
-const db = require('./config/db'); // initialise SQLite
+const db = require('./config/db'); // initialise la base (fichier local ou Turso)
 
 // Créer l'admin au premier démarrage si la table est vide
-(function seedAdmin() {
+async function seedAdmin() {
   const bcrypt = require('bcryptjs');
   const email = (process.env.ADMIN_EMAIL || 'admin@globalreno.fr').toLowerCase();
   const password = process.env.ADMIN_PASSWORD || 'GlobalReno2024!';
-  const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email);
+  const existing = await db.get('SELECT id FROM users WHERE email = ?', email);
   if (!existing) {
     const hash = bcrypt.hashSync(password, 12);
-    db.prepare('INSERT INTO users (email, password, name) VALUES (?, ?, ?)').run(email, hash, 'Admin Global Réno');
+    await db.run('INSERT INTO users (email, password, name) VALUES (?, ?, ?)', email, hash, 'Admin Global Réno');
     console.log('✅ Admin créé :', email);
   }
-})();
+}
 
 const authRoutes = require('./routes/auth');
 const articlesRoutes = require('./routes/articles');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
+// Derrière le proxy Hostinger : vraie IP du visiteur pour le rate-limit
+// (sinon tous les visiteurs partagent la même limite de 10 connexions/h).
+app.set('trust proxy', 1);
 const fs = require('fs');
 const distPath = path.join(__dirname, '../dist');
 const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
@@ -60,10 +64,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/articles', articlesRoutes);
 app.use('/api/admin', adminRoutes);
 
-app.get('/api/health', (_req, res) => res.json({ status: 'ok', db: 'SQLite', timestamp: new Date() }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok', db: process.env.TURSO_DATABASE_URL ? 'Turso' : 'SQLite', timestamp: new Date() }));
 
 // Sitemap dynamique — pages statiques + tous les articles publiés
-app.get('/sitemap.xml', (_req, res) => {
+app.get('/sitemap.xml', async (_req, res) => {
   const db = require('./config/db');
   const SITE = process.env.SITE_URL || 'https://globalreno-renovation.fr';
 
@@ -76,9 +80,7 @@ app.get('/sitemap.xml', (_req, res) => {
     { loc: `${SITE}/mentions-legales`, priority: '0.3', changefreq: 'yearly' },
   ];
 
-  const articles = db.prepare(
-    'SELECT slug, updated_at FROM articles WHERE published = 1 ORDER BY updated_at DESC'
-  ).all();
+  const articles = await db.all('SELECT slug, updated_at FROM articles WHERE published = 1 ORDER BY updated_at DESC');
 
   const urlTags = [
     ...staticPages.map(({ loc, priority, changefreq }) => `
@@ -112,4 +114,6 @@ if (hasDist) {
 }
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`🚀 Global Réno → http://localhost:${PORT}`));
+db.ready.then(seedAdmin).then(() => {
+  app.listen(PORT, () => console.log(`🚀 Global Réno → http://localhost:${PORT}`));
+});

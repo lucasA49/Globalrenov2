@@ -9,13 +9,13 @@ const router = express.Router();
 const signToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '7d' });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ message: 'Email et mot de passe requis' });
   }
 
-  const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email.toLowerCase().trim());
+  const user = await db.get('SELECT * FROM users WHERE email = ?', email.toLowerCase().trim());
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return res.status(401).json({ message: 'Email ou mot de passe incorrect' });
   }

@@ -6,14 +6,14 @@ function generateId() {
   return randomUUID();
 }
 
-function generateSlug(title, excludeId = null) {
+async function generateSlug(title, excludeId = null) {
   const base = slugifyLib(title, { lower: true, strict: true, locale: 'fr' });
   let slug = base;
   let count = 0;
   while (true) {
     const row = excludeId
-      ? db.prepare('SELECT id FROM articles WHERE slug = ? AND id != ?').get(slug, excludeId)
-      : db.prepare('SELECT id FROM articles WHERE slug = ?').get(slug);
+      ? await db.get('SELECT id FROM articles WHERE slug = ? AND id != ?', slug, excludeId)
+      : await db.get('SELECT id FROM articles WHERE slug = ?', slug);
     if (!row) break;
     slug = `${base}-${++count}`;
   }
