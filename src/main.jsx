@@ -10,6 +10,7 @@ import Contact from "./Pages/Contact";
 import Services from "./Pages/Services";
 import Realisation from "./Pages/Realisation";
 import Cgv from "./Pages/Cgv";
+import NotFound from "./Pages/NotFound";
 
 // Code splitting — chargement à la demande
 const BlogList = lazy(() => import("./blog/pages/BlogList"));
@@ -57,6 +58,9 @@ const router = createBrowserRouter([
     path: "/admin/articles/edit/:id",
     element: <Suspense fallback={<Loader />}><PrivateRoute><AdminArticleEdit /></PrivateRoute></Suspense>,
   },
+
+  // Toute autre URL : vraie page 404 (au lieu du message brut de React Router)
+  { path: "*", element: <NotFound /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
