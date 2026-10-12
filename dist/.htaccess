@@ -30,3 +30,17 @@
 
 # Page d'erreur 404 propre si jamais une route n'existe vraiment pas
 ErrorDocument 404 /index.html
+
+# En-têtes de sécurité HTTP standards (absents par défaut sur le site)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+</IfModule>
+
+# Blocage explicite des fichiers sensibles (en plus de la protection par défaut)
+<FilesMatch "^\.(env|git)">
+  Require all denied
+</FilesMatch>
