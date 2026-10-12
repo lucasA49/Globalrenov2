@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
+  ShieldCheck,
+  BadgeCheck,
   Award,
-  Leaf,
-  CheckCircle2,
   Search,
   FileText,
   HardHat,
@@ -11,12 +11,16 @@ import {
 } from "lucide-react";
 
 /* =========================
-   DONNÉES CERTIFICATIONS
+   DONNÉES ENGAGEMENTS
+   ⚠️ N'afficher que des garanties réelles et vérifiables.
+   TODO Lucas : donne-moi ton numéro de certification RGE (visible sur
+   https://france-renov.gouv.fr/annuaire-rge) pour l'ajouter ici en petit,
+   ça renforce la crédibilité auprès des clients et de Google.
 ========================= */
 const certifications = [
-  { id: 1, name: "QUALIBAT RGE", icon: Award, description: "Efficacité énergétique" },
-  { id: 2, name: "ISO 14001", icon: Leaf, description: "Management environnemental" },
-  { id: 3, name: "Garantie Décennale PRO", icon: CheckCircle2, description: "Assurance professionnelle" },
+  { id: 1, name: "Certifié RGE", icon: Award, description: "Éligible MaPrimeRénov' & CEE" },
+  { id: 2, name: "Assurance Décennale", icon: ShieldCheck, description: "Travaux garantis 10 ans" },
+  { id: 3, name: "Devis gratuit", icon: BadgeCheck, description: "Sans engagement, réponse rapide" },
 ];
 
 /* =========================
@@ -25,26 +29,26 @@ const certifications = [
 const steps = [
   {
     id: 1,
-    title: "1. AUDIT & CONSEIL",
-    description: "Analyse sur site, diagnostic thermique, définition des objectifs RSE.",
+    title: "1. VISITE & DIAGNOSTIC",
+    description: "On vient chez vous évaluer les travaux : façade, toiture, isolation. Gratuit et sans engagement.",
     icon: Search,
   },
   {
     id: 2,
-    title: "2. ÉTUDE & DEVIS",
-    description: "Proposition technique chiffrée, planning prévisionnel et aides financières.",
+    title: "2. DEVIS DÉTAILLÉ",
+    description: "Un devis clair et chiffré, avec les aides financières (MaPrimeRénov', CEE) auxquelles vous pouvez avoir droit.",
     icon: FileText,
   },
   {
     id: 3,
-    title: "3. RÉALISATION",
-    description: "Mise en œuvre par équipes qualifiées, suivi de chantier rigoureux.",
+    title: "3. LES TRAVAUX",
+    description: "Notre équipe intervient chez vous, avec un chantier propre et un suivi régulier.",
     icon: HardHat,
   },
   {
     id: 4,
-    title: "4. RÉCEPTION & SUIVI",
-    description: "Contrôle qualité, remise des DOE, garantie et maintenance.",
+    title: "4. RÉCEPTION",
+    description: "Contrôle final avec vous, garantie décennale et conseils d'entretien.",
     icon: Handshake,
   },
 ];
@@ -79,7 +83,7 @@ export default function TrustAndProcessSection() {
         ========================================= */}
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-12 uppercase tracking-wide">
-            NOS CERTIFICATIONS & ENGAGEMENTS
+            NOS GARANTIES
           </h2>
 
           <motion.div
@@ -123,7 +127,7 @@ export default function TrustAndProcessSection() {
         ========================================= */}
         <div>
           <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-16 uppercase tracking-wide">
-            NOTRE MÉTHODOLOGIE PRO : EN 4 ÉTAPES CLAIRES
+            COMMENT SE PASSE UN CHANTIER AVEC NOUS : 4 ÉTAPES
           </h2>
 
           <div className="relative">

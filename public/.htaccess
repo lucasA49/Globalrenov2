@@ -1,0 +1,32 @@
+# Global Réno — réécriture SPA pour Apache (Hostinger)
+# Sans ce fichier, toute URL ouverte directement (ex: /services, /contact,
+# /realisations, /blog) renvoie une 404 "This Page Does Not Exist" car le
+# serveur cherche un fichier/dossier physique qui n'existe pas : seul React
+# Router sait gérer ces routes, et seul index.html charge React Router.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ne pas réécrire si le fichier ou le dossier demandé existe réellement
+  # (images, CSS, JS, uploads, sitemap.xml, robots.txt, etc.)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Toutes les autres requêtes sont envoyées vers index.html,
+  # qui charge React Router pour afficher la bonne page.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Évite le double indexage (avec/sans slash final) et les soucis de cache
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Page d'erreur 404 propre si jamais une route n'existe vraiment pas
+ErrorDocument 404 /index.html

@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <>
       <title>Contactez Global Réno | Devis Gratuit Rénovation Cholet</title>
-      <meta name="description" content="Demandez un devis gratuit à Global Réno. Toiture, façade, isolation, peinture à Cholet et dans le Maine-et-Loire. Réponse rapide." />
+      <meta name="description" content="Demandez un devis gratuit à Global Réno. Façade, isolation, peinture à Cholet et dans le Maine-et-Loire. Réponse rapide." />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={`${SITE}/contact`} />
 

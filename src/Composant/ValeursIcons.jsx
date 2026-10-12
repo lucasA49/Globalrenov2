@@ -9,8 +9,7 @@ export default function ValeursIcons() {
             Pourquoi faire confiance à Global Reno
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Une approche professionnelle, durable et conforme aux exigences
-            des chantiers .
+            Une approche sérieuse, durable, au service de votre confort et de vos économies d'énergie.
           </p>
         </div>
 
@@ -35,7 +34,7 @@ export default function ValeursIcons() {
             </h3>
             <p className="mt-3 text-gray-600 text-sm">
               Une parfaite maîtrise des travaux de rénovation, peinture,
-              ravalement et isolation pour bâtiments professionnels.
+              ravalement et isolation, pour les maisons comme pour les bâtiments professionnels.
             </p>
           </div>
 
@@ -61,11 +60,11 @@ export default function ValeursIcons() {
             </div>
 
             <h3 className="mt-6 text-lg font-semibold text-gray-900">
-              Qualité & conformité
+              Qualité & sérénité
             </h3>
             <p className="mt-3 text-gray-600 text-sm">
-              Respect strict des normes, matériaux certifiés
-              et garanties professionnelles incluses.
+              Matériaux de qualité, chantier soigné et garantie décennale
+              sur tous nos travaux.
             </p>
           </div>
 

@@ -11,7 +11,7 @@ export default function PrestationsCards() {
             Nos prestations
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Des solutions de rénovation et d’isolation sur mesure, pour professionnels et particuliers.
+            Des solutions de rénovation et d'isolation sur mesure pour votre maison, aussi pour les professionnels.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function PrestationsCards() {
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900">Peinture intérieure & extérieure</h3>
               <p className="mt-4 text-gray-600 text-sm">
-                Travaux de peinture pour bâtiments tertiaires, locaux professionnels et copropriétés...
+                Rafraîchissez votre maison ou vos locaux professionnels : murs, volets, portails, façades.
               </p>
               {/* LIEN VERS ID service-1 */}
               <NavLink
@@ -50,7 +50,7 @@ export default function PrestationsCards() {
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900">Ravalement & enduit de façade</h3>
               <p className="mt-4 text-gray-600 text-sm">
-                Diagnostic, traitement et rénovation complète des façades...
+                Façade qui noircit, fissure ou s'abîme ? On diagnostique et on redonne vie à votre façade.
               </p>
               {/* LIEN VERS ID service-2 */}
               <NavLink
@@ -72,7 +72,7 @@ export default function PrestationsCards() {
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900">Isolation thermique extérieure</h3>
               <p className="mt-4 text-gray-600 text-sm">
-                Solutions d’isolation performantes pour améliorer l’efficacité énergétique...
+                Votre maison perd sa chaleur ? Entreprise certifiée RGE : l'ITE réduit vos factures de chauffage et ouvre droit à MaPrimeRénov' et aux primes CEE.
               </p>
               {/* LIEN VERS ID service-3 */}
               <NavLink

@@ -11,7 +11,7 @@ export default function CTAImages() {
             Des chantiers maîtrisés de A à Z
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Nous intervenons sur des projets professionnels avec une exigence
+            Pour votre maison ou vos locaux professionnels, une exigence
             constante de qualité, de sécurité et de durabilité.
           </p>
         </div>
@@ -40,10 +40,10 @@ export default function CTAImages() {
         {/* CTA */}
         <div className="mt-14 flex justify-center">
           <NavLink
-            to="/devis"
+            to="/contact"
             className="bg-[#1F7A5A] text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-[#166A4C] transition"
           >
-            Demander un devis professionnel
+            Demander un devis gratuit
           </NavLink>
         </div>
 

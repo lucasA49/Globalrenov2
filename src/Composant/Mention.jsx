@@ -36,9 +36,21 @@ const MentionsLegales = () => {
           </p>
         </section>
 
+        {/* Assurance professionnelle */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-blue-900">4. ASSURANCE PROFESSIONNELLE</h2>
+          <p>
+            GLOBAL RENO a souscrit une assurance de responsabilité civile professionnelle et une garantie décennale
+            couvrant les travaux réalisés, conformément à l'article L241-1 du Code des assurances.
+          </p>
+          {/* TODO Lucas : indique ici le nom de ton assureur, le n° de police et la couverture
+              géographique — obligatoire à afficher pour une entreprise du BTP (art. L243-2
+              Code des assurances). Je n'invente pas ces informations. */}
+        </section>
+
         {/* Propriété intellectuelle */}
         <section>
-          <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-blue-900">4. PROPRIÉTÉ INTELLECTUELLE</h2>
+          <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-blue-900">5. PROPRIÉTÉ INTELLECTUELLE</h2>
           <p>
             Tous les éléments de ce site (textes, graphismes, logos, photos, etc.) sont la propriété exclusive de 
             <strong> GLOBAL RENO</strong>. Toute reproduction ou distribution non autorisée est passible de poursuites judiciaires 
@@ -48,7 +60,7 @@ const MentionsLegales = () => {
 
         {/* Protection des données */}
         <section>
-          <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-blue-900">5. DONNÉES PERSONNELLES (RGPD)</h2>
+          <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-blue-900">6. DONNÉES PERSONNELLES (RGPD)</h2>
           <p>
             Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, 
             de rectification et de suppression des informations vous concernant. Pour exercer ce droit, 

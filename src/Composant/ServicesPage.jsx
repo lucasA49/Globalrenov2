@@ -37,9 +37,9 @@ const servicesData = [
     id: 3,
     anchor: "service-3",
     title: "Isolation thermique extérieure",
-    description: "Réduisez vos factures d'énergie et améliorez votre confort thermique.",
-    imageSrc: "/iteserv.png", 
-    checklist: ["Zéro ponts thermiques", "Gain de confort", "Éligible aides État"],
+    description: "Réduisez vos factures d'énergie et améliorez votre confort thermique. Entreprise certifiée RGE : vos travaux peuvent être éligibles à MaPrimeRénov' et aux primes CEE.",
+    imageSrc: "/iteserv.png",
+    checklist: ["Zéro ponts thermiques", "Gain de confort", "Certifié RGE — éligible aides de l'État"],
     benefits: [
       { icon: Coins, text: "Économies", color: "text-yellow-600" },
       { icon: ThermometerSun, text: "Confort", color: "text-red-500" },

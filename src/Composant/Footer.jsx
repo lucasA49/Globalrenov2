@@ -64,12 +64,22 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <h4 className="font-semibold mb-4">Contact</h4>
           <ul className="space-y-2 text-sm text-white/90">
             <li>📍 20 Rue du Champ Blanc, 49280 Mazières-en-Mauges</li>
-            <li>📞 06 82 31 24 59</li>
-            <li>✉️  globalreno49@gmail.com</li>
+            <li>
+              📞{" "}
+              <a href="tel:+33682312459" className="hover:underline">
+                06 82 31 24 59
+              </a>
+            </li>
+            <li>
+              ✉️{" "}
+              <a href="mailto:globalreno49@gmail.com" className="hover:underline">
+                globalreno49@gmail.com
+              </a>
+            </li>
             <li className="pt-3 text-xs">
-              Intervention pour
-              <br />
-              pour les professionnels et les particuliers.
+              Intervention à Cholet, Mazières-en-Mauges, Chemillé-en-Anjou,
+              Beaupréau-en-Mauges, Mortagne-sur-Sèvre et dans tout le Maine-et-Loire,
+              pour les particuliers et les professionnels.
             </li>
           </ul>
         </div>
@@ -84,9 +94,6 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
           <div className="flex gap-4 mt-3 md:mt-0">
             <NavLink to="/mentions-legales" className="hover:underline">
               Mentions légales
-            </NavLink>
-            <NavLink to="/admin/login" className="hover:underline text-white/40 hover:text-white/70 transition-colors">
-              Admin
             </NavLink>
           </div>
         </div>

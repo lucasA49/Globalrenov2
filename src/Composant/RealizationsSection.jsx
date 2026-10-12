@@ -2,44 +2,41 @@ import React from 'react';
 import { MessageCircle, ThumbsUp, Leaf, Briefcase, Users, Award } from 'lucide-react';
 
 
-// Données des projets (à remplacer par vos vraies données et images)
+// Données des projets
+// ⚠️ À remplacer par de vraies réalisations (photos + lieu + surface réels)
+// dès que possible. Ne jamais afficher un chiffre ou une certification
+// qui ne peut pas être justifiée au client.
 const projects = [
   {
     id: 1,
-    title: "Rénovation Façade ",
+    title: "Rénovation de façade",
     image: "/facadeserv.png",
     year: "2025",
-    location: "Grand Ouest",
+    location: "Cholet",
     surface: "300 m²",
     testimonialIcon: MessageCircle,
-    testimonialText: "Témoignage Client: \"Transformation spectaculaire, économies d'énergie majeures.",
+    testimonialText: "Une façade abîmée retrouve son éclat et protège mieux la maison des intempéries.",
   },
   {
     id: 2,
-    title: "Peinture Intérieure ",
+    title: "Peinture intérieure",
     image: "/peinture-pro.png",
     year: "2025",
-    location: "Grand ouest",
+    location: "Mazières-en-Mauges",
     surface: "240 m²",
     testimonialIcon: ThumbsUp,
-    testimonialText: "Résultat: +40% de luminosité, qualité de l'air améliorée. Certification LEED GoldPlus qu'une simple peinture, c'est un véritable soin pour nos espaces. Luminosité décuplée, finitions impeccables et une certification environnementale qui prouve notre engagement pour la santé de nos collaborateurs.",
+    testimonialText: "Des finitions soignées et des espaces repeints avec des matériaux de qualité.",
   },
   {
     id: 3,
-    title: "Isolation Thermique Extérieure ",
+    title: "Isolation thermique extérieure",
     image: "/ite.png",
     year: "2024",
-    location: "Grand Ouest",
+    location: "Chemillé-en-Anjou",
     surface: "600 m²",
     testimonialIcon: Leaf,
-    testimonialText: "L'alliance parfaite de la technique et de l'économie. Le confort est total dès le premier hiver, avec une baisse de 30% des dépenses énergétiques. Un projet maîtrisé de A à Z dont la rentabilité est assurée en 5 ans.",
+    testimonialText: "Un meilleur confort dès le premier hiver et des économies sur la facture de chauffage.",
   },
-];
-
-// Données des statistiques
-const stats = [
-  { icon: Briefcase, number: "280+", label: "Projets Réalisés" },
-  { icon: Users, number: "98%", label: "Clients Satisfaits" },
 ];
 
 export default function RealizationsSection() {
@@ -50,7 +47,7 @@ export default function RealizationsSection() {
         {/* --- Header de la section --- */}
        
           <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos projets de rénovation et d'isolation thermique : l'excellence au service des professionnels.
+            Découvrez nos chantiers de rénovation et d'isolation thermique, au service des propriétaires comme des professionnels.
           </p>
         </div>
 
@@ -97,23 +94,28 @@ export default function RealizationsSection() {
           ))}
         </div>
 
-        {/* --- Barre des Statistiques --- */}
-        <div className="mt-24 bg-gray-50 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between shadow-inner">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 md:mb-0">
-            Statistiques Clés
+        {/* --- Nos engagements ---
+            Remplace les anciens chiffres invérifiables ("280+ projets",
+            "98% satisfaits") par des engagements réels. À réactiver avec
+            de vrais chiffres (nombre de chantiers, avis Google) une fois
+            que vous les aurez mesurés. */}
+        <div className="mt-24 bg-gray-50 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between shadow-inner gap-8">
+          <h3 className="text-2xl font-bold text-gray-900">
+            Nos engagements
           </h3>
-          
+
           <div className="flex flex-wrap justify-center gap-12 md:gap-24">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center">
+            {[
+              { icon: Award, label: "Garantie décennale" },
+              { icon: Briefcase, label: "Devis gratuit" },
+              { icon: Users, label: "Entreprise locale, Mazières-en-Mauges" },
+            ].map((item, index) => (
+              <div key={index} className="flex flex-col items-center max-w-[160px] text-center">
                 <div className="mb-3 p-3 bg-green-100 rounded-2xl text-green-600">
-                  <stat.icon className="w-8 h-8" />
-                </div>
-                <div className="text-4xl font-extrabold text-gray-900">
-                  {stat.number}
+                  <item.icon className="w-8 h-8" />
                 </div>
                 <div className="text-sm font-medium text-gray-600 mt-1 uppercase tracking-wider">
-                  {stat.label}
+                  {item.label}
                 </div>
               </div>
             ))}

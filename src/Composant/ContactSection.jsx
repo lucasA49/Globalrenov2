@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const ContactSection = () => {
   return (
@@ -23,12 +24,23 @@ const ContactSection = () => {
             Demandez Votre Devis Gratuit!
           </h2>
           <p className="text-sm md:text-base font-light opacity-90 leading-relaxed max-w-lg">
-            Contactez-nous dès aujourd'hui pour un devis personnalisé, rapide et gratuit pour le devis.
+            Contactez-nous dès aujourd'hui pour un devis gratuit et rapide, personnalisé à votre projet.
           </p>
-          
-          <button className="mt-4 bg-[#D99018] hover:bg-[#b87a14] text-white text-sm font-bold py-3 px-8 rounded shadow-lg uppercase tracking-wide transition-colors duration-300 border-b-4 border-[#a66e12]">
-            Contactez-nous
-          </button>
+
+          <div className="flex flex-wrap gap-3">
+            <NavLink
+              to="/contact"
+              className="mt-4 inline-block bg-[#D99018] hover:bg-[#b87a14] text-white text-sm font-bold py-3 px-8 rounded shadow-lg uppercase tracking-wide transition-colors duration-300 border-b-4 border-[#a66e12]"
+            >
+              Contactez-nous
+            </NavLink>
+            <a
+              href="tel:+33682312459"
+              className="mt-4 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-[#4F7A28] text-sm font-bold py-3 px-8 rounded shadow-lg uppercase tracking-wide transition-colors duration-300"
+            >
+              <Phone className="w-4 h-4" /> Appeler maintenant
+            </a>
+          </div>
         </div>
 
         {/* Partie Droite : Carte Contact */}
@@ -50,7 +62,12 @@ const ContactSection = () => {
                   <Phone className="w-6 h-6 text-[#556B2F]" fill="#556B2F" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-700">Téléphone : <span className="font-normal text-gray-600">06 82 31 24 59</span></p>
+                  <p className="text-sm font-semibold text-gray-700">
+                    Téléphone :{" "}
+                    <a href="tel:+33682312459" className="font-normal text-gray-600 hover:underline">
+                      06 82 31 24 59
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -70,8 +87,10 @@ const ContactSection = () => {
                   <MapPin className="w-6 h-6 text-[#556B2F]" fill="#556B2F" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-700">Zone d'intervention:</p>
-                  <p className="text-sm font-normal text-gray-600">Grand Ouest</p>
+                  <p className="text-sm font-semibold text-gray-700">Zone d'intervention :</p>
+                  <p className="text-sm font-normal text-gray-600">
+                    Cholet, Mazières-en-Mauges, Chemillé-en-Anjou, Beaupréau-en-Mauges, Mortagne-sur-Sèvre et tout le Maine-et-Loire
+                  </p>
                 </div>
               </div>
 

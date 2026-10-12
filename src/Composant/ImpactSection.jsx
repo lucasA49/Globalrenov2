@@ -76,27 +76,23 @@ const ImpactSection = () => {
           </div>
         </div>
 
-        {/* --- TÉMOIGNAGE --- */}
-        <div className="max-w-3xl mx-auto mt-12 mb-20">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col md:flex-row items-center gap-6 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white rotate-45 border-t border-l border-gray-100 md:hidden"></div>
-            <div className="flex-shrink-0">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop" 
-                alt="Aliciya" 
-                className="w-20 h-20 rounded-full object-cover border-4 border-green-50 shadow-md"
-              />
-            </div>
-            <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                <h4 className="font-bold text-gray-900 text-lg">Aliciya</h4>
-                <span className="text-gray-400 text-sm">|</span>
-                <p className="text-green-600 font-medium text-sm">PDG "ImmoTech Solutions"</p>
-              </div>
-              <p className="text-gray-600 italic leading-relaxed">
-                "Global Reno a non seulement amélioré notre DPE de trois classes, mais a aussi revalorisé notre actif de 20%."
-              </p>
-            </div>
+        {/* --- AVIS CLIENTS GOOGLE ---
+            TODO : remplacer ce bloc par de vrais avis Google (widget ou
+            copier-coller) une fois que les clients auront laissé leurs avis.
+            Ne jamais afficher un témoignage ou une photo inventée. */}
+        <div className="max-w-3xl mx-auto mt-12 mb-20 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+            <p className="text-gray-700 font-medium mb-4">
+              Vous avez fait appel à Global Réno ? Votre avis compte pour les prochains clients.
+            </p>
+            <a
+              href="https://www.google.com/search?q=global+reno+mazi%C3%A8res-en-mauges+avis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-green-700 font-bold hover:underline"
+            >
+              ⭐ Laisser un avis Google
+            </a>
           </div>
         </div>
 
@@ -110,7 +106,7 @@ const ImpactSection = () => {
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <NavLink to="/contact" className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold shadow-lg hover:bg-gray-800 transition-all flex items-center gap-2 group">
-              DEMANDER UN AUDIT GRATUIT
+              DEMANDER UN DEVIS GRATUIT
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </NavLink>
             <a 
