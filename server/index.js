@@ -28,10 +28,18 @@ const fs = require('fs');
 const distPath = path.join(__dirname, '../dist');
 const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
 
-// Si dist/ existe on est en prod (même domaine) → pas de CORS
-// Sinon on est en dev → on autorise Vite dev server
+// Le site (Hostinger) et l'API (Railway) sont sur des domaines différents :
+// on autorise explicitement les origines du site, avec et sans www.
+// CLIENT_URL peut contenir plusieurs URLs séparées par des virgules.
+const allowedOrigins = [
+  'https://globalreno-renovation.fr',
+  'https://www.globalreno-renovation.fr',
+  'http://localhost:5173',
+  ...(process.env.CLIENT_URL || '').split(',').map((s) => s.trim().replace(/\/$/, '')),
+].filter(Boolean);
+
 app.use(cors({
-  origin: hasDist ? false : (process.env.CLIENT_URL || 'http://localhost:5173'),
+  origin: allowedOrigins,
   credentials: true,
 }));
 

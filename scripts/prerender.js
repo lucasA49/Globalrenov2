@@ -32,7 +32,8 @@ for (const url of Object.keys(routes)) {
   });
 
   const html = template
-    .replace(/<title>[\s\S]*?<\/title>/, head.join('\n    '))
+    .replace(/<meta data-prerender name="description"[^>]*>\s*/, '')
+    .replace(/<title[^>]*>[\s\S]*?<\/title>/, head.join('\n    '))
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 
   const file = url === '/' ? 'index.html' : `${url.slice(1)}.html`;
