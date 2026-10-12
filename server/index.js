@@ -8,6 +8,22 @@ const rateLimit = require('express-rate-limit');
 const db = require('./config/db'); // initialise la base (fichier local ou Turso)
 
 // Créer l'admin au premier démarrage si la table est vide
+// Si JWT_SECRET n'est pas défini (variables d'environnement perdues lors d'un
+// redéploiement Hostinger), on génère une clé aléatoire et on la garde en base :
+// la connexion admin continue de marcher sans configuration.
+async function ensureJwtSecret() {
+  if (process.env.JWT_SECRET) return;
+  await db.run('CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)');
+  let row = await db.get("SELECT value FROM settings WHERE key = 'jwt_secret'");
+  if (!row) {
+    const secret = require('crypto').randomBytes(48).toString('hex');
+    await db.run("INSERT INTO settings (key, value) VALUES ('jwt_secret', ?)", secret);
+    row = { value: secret };
+    console.log('🔑 JWT_SECRET absent : clé générée et enregistrée en base');
+  }
+  process.env.JWT_SECRET = row.value;
+}
+
 async function seedAdmin() {
   const bcrypt = require('bcryptjs');
   const email = (process.env.ADMIN_EMAIL || 'admin@globalreno.fr').toLowerCase();
@@ -114,6 +130,6 @@ if (hasDist) {
 }
 
 const PORT = process.env.PORT || 5001;
-db.ready.then(seedAdmin).then(() => {
+db.ready.then(ensureJwtSecret).then(seedAdmin).then(() => {
   app.listen(PORT, () => console.log(`🚀 Global Réno → http://localhost:${PORT}`));
 });
