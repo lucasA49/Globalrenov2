@@ -20,6 +20,9 @@ export default function HeroPrestation() {
     
     {/* Ajout de drop-shadow pour le contraste */}
     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+      <span className="block mb-3 text-sm md:text-base font-semibold uppercase tracking-wider text-white/90">
+        Global Réno · Entreprise RGE de rénovation à Cholet
+      </span>
       Votre maison perd sa chaleur ?
       <span className="block text-white">
        Façade qui noircit ?

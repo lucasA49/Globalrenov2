@@ -13,15 +13,24 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 
-  # Toutes les autres requêtes sont envoyées vers index.html,
-  # qui charge React Router pour afficher la bonne page.
-  RewriteRule ^ index.html [L]
+  # Pages prérendues (GEO) : /services → services.html, etc.
+  # Les robots IA qui ne lisent pas le JavaScript reçoivent ainsi le vrai contenu.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^.]+?)/?$ $1.html [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Toutes les autres requêtes (blog, admin…) sont envoyées vers la coquille
+  # SPA, qui charge React Router pour afficher la bonne page.
+  RewriteRule ^ spa.html [L]
 </IfModule>
 
 # Évite le double indexage (avec/sans slash final) et les soucis de cache
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/plain "access plus 1 day"
   ExpiresByType image/png "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType text/css "access plus 1 month"
@@ -29,7 +38,7 @@
 </IfModule>
 
 # Page d'erreur 404 propre si jamais une route n'existe vraiment pas
-ErrorDocument 404 /index.html
+ErrorDocument 404 /spa.html
 
 # En-têtes de sécurité HTTP standards (absents par défaut sur le site)
 <IfModule mod_headers.c>

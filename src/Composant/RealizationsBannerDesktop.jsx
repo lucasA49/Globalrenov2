@@ -19,9 +19,9 @@ export default function RealizationsBannerDesktop() {
 
           {/* Titre avec soulignement */}
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 z-10 relative">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 z-10 relative">
               NOS RÉALISATIONS
-            </h2>
+            </h1>
             <div className="absolute bottom-1 left-0 w-full h-3 bg-green-500/30 -z-0 rounded-full transform -rotate-1"></div>
           </div>
 

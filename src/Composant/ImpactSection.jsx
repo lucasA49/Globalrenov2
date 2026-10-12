@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight, Phone } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import { GOOGLE_BUSINESS_URL } from '../lib/business';
 
 const ImpactSection = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -86,7 +87,7 @@ const ImpactSection = () => {
               Vous avez fait appel à Global Réno ? Votre avis compte pour les prochains clients.
             </p>
             <a
-              href="https://www.google.com/search?q=global+reno+mazi%C3%A8res-en-mauges+avis"
+              href={GOOGLE_BUSINESS_URL || "https://www.google.com/search?q=global+reno+mazi%C3%A8res-en-mauges+avis"}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-green-700 font-bold hover:underline"

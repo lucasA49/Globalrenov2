@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { 
-  Check, ShieldCheck, Home, Sparkles, 
-  BrickWall, Droplets, Leaf, 
-  Coins, ThermometerSun, Globe 
+import {
+  Check, ShieldCheck, Home, Sparkles,
+  BrickWall, Droplets, Leaf,
+  Coins, ThermometerSun, Globe,
+  Hammer, CloudRain, Wrench
 } from 'lucide-react';
 
 const servicesData = [
@@ -45,6 +46,21 @@ const servicesData = [
       { icon: ThermometerSun, text: "Confort", color: "text-red-500" },
       { icon: Globe, text: "Durable", color: "text-green-600" },
     ]
+  },
+  {
+    id: 4,
+    anchor: "service-4",
+    title: "Couverture & toiture",
+    description: "Réparation de fuites, remplacement de tuiles, démoussage et entretien de votre toiture pour la protéger durablement.",
+    // TODO Lucas : envoie-moi une photo d'un de tes chantiers toiture et je
+    // remplace ce visuel par une vraie photo (imageSrc: "/toiture.png").
+    iconFallback: CloudRain,
+    checklist: ["Réparation de fuites", "Remplacement de tuiles", "Démoussage & entretien"],
+    benefits: [
+      { icon: Hammer, text: "Réparation", color: "text-orange-600" },
+      { icon: Wrench, text: "Entretien", color: "text-gray-600" },
+      { icon: ShieldCheck, text: "Durable", color: "text-green-600" },
+    ]
   }
 ];
 
@@ -55,7 +71,13 @@ const ServiceSection = ({ service, isReversed }) => (
   >
     <div className="w-full lg:w-1/2">
       <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
-        <img src={service.imageSrc} alt={service.title} className="w-full h-full object-cover" />
+        {service.imageSrc ? (
+          <img src={service.imageSrc} alt={service.title} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#4F7A28]/10 to-[#4F7A28]/20">
+            <service.iconFallback className="w-24 h-24 text-[#4F7A28]" strokeWidth={1.5} />
+          </div>
+        )}
       </div>
     </div>
     <div className="w-full lg:w-1/2 space-y-6">

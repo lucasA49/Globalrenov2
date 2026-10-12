@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { GOOGLE_BUSINESS_URL } from "../lib/business";
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
             GLOBAL <span className="text-white/90">RENO</span>
           </h3>
           <p className="mt-4 text-sm text-white/90 leading-relaxed">
-Entreprise spécialisée en rénovation, peinture, ravalement de façade et isolation thermique par l’extérieur pour les professionnels et les particuliers.          </p>
+Entreprise spécialisée en rénovation, toiture, peinture, ravalement de façade et isolation thermique par l’extérieur pour les professionnels et les particuliers.          </p>
         </div>
 
         {/* PRESTATIONS */}
@@ -28,6 +29,9 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
             </li>
             <li>
                 Isolation thermique extérieure
+            </li>
+            <li>
+                Couverture & toiture
             </li>
           </ul>
         </div>
@@ -76,10 +80,18 @@ Entreprise spécialisée en rénovation, peinture, ravalement de façade et isol
                 globalreno49@gmail.com
               </a>
             </li>
+            {GOOGLE_BUSINESS_URL && (
+              <li>
+                ⭐{" "}
+                <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Notre fiche Google (avis & itinéraire)
+                </a>
+              </li>
+            )}
             <li className="pt-3 text-xs">
-              Intervention à Cholet, Mazières-en-Mauges, Chemillé-en-Anjou,
-              Beaupréau-en-Mauges, Mortagne-sur-Sèvre et dans tout le Maine-et-Loire,
-              pour les particuliers et les professionnels.
+              Intervention à Cholet, Mazières-en-Mauges, Le May-sur-Èvre, La Séguinière,
+              Chemillé-en-Anjou, Beaupréau-en-Mauges, Mortagne-sur-Sèvre et dans toute
+              Cholet Agglomération et le Maine-et-Loire, pour les particuliers et les professionnels.
             </li>
           </ul>
         </div>

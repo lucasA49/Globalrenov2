@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { CloudRain } from "lucide-react";
 
 export default function PrestationsCards() {
   return (
@@ -16,7 +17,7 @@ export default function PrestationsCards() {
         </div>
 
         {/* CARDS */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* CARD 1 - PEINTURE */}
           <div className="group bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
@@ -77,6 +78,26 @@ export default function PrestationsCards() {
               {/* LIEN VERS ID service-3 */}
               <NavLink
                 to="/services#service-3"
+                className="inline-block mt-6 text-[#1F7A5A] font-semibold hover:underline"
+              >
+                En savoir plus →
+              </NavLink>
+            </div>
+          </div>
+
+          {/* CARD 4 - TOITURE */}
+          {/* TODO Lucas : envoie une photo de chantier toiture pour remplacer cette icône par une vraie image */}
+          <div className="group bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
+            <div className="h-56 w-full flex items-center justify-center bg-gradient-to-br from-[#4F7A28]/10 to-[#4F7A28]/20 group-hover:scale-105 transition duration-300">
+              <CloudRain className="w-16 h-16 text-[#4F7A28]" strokeWidth={1.5} />
+            </div>
+            <div className="p-8">
+              <h3 className="text-xl font-semibold text-gray-900">Couverture & toiture</h3>
+              <p className="mt-4 text-gray-600 text-sm">
+                Fuite, tuiles cassées, mousse sur le toit ? On répare et entretient votre toiture à Cholet et alentours.
+              </p>
+              <NavLink
+                to="/services#service-4"
                 className="inline-block mt-6 text-[#1F7A5A] font-semibold hover:underline"
               >
                 En savoir plus →

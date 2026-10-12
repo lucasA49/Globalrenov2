@@ -22,6 +22,9 @@ export default function HeroServices() {
         
         <h1 className="text-5xl md:text-7xl font-extrabold text-white uppercase tracking-wider drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)]">
           Nos Services
+          <span className="block mt-3 text-base md:text-xl font-semibold normal-case tracking-normal">
+            Toiture, isolation extérieure RGE, façade et peinture à Cholet
+          </span>
         </h1>
 
         {/* LIGNE VERTE CORRIGÉE */}

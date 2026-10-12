@@ -201,7 +201,7 @@ export default function BlogArticle() {
                 Demander un devis
               </Link>
               <a
-                href="tel:+33600000000"
+                href="tel:+33682312459"
                 className="flex items-center gap-2 px-6 py-3 border-2 border-white/40 text-white rounded-xl hover:border-white transition-colors cursor-pointer"
               >
                 <Phone size={16} />

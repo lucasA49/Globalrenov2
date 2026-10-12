@@ -73,9 +73,9 @@ const ContactForm = () => {
         
         {/* En-tête */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Parlons de votre projet
-          </h2>
+          </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Remplissez le formulaire ci-dessous et notre équipe d'experts vous recontactera sous 24h pour discuter de vos besoins en rénovation.
           </p>

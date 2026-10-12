@@ -65,6 +65,7 @@ app.get('/sitemap.xml', (_req, res) => {
     { loc: `${SITE}/realisations`, priority: '0.8', changefreq: 'monthly' },
     { loc: `${SITE}/contact`, priority: '0.7', changefreq: 'yearly' },
     { loc: `${SITE}/blog`, priority: '0.9', changefreq: 'daily' },
+    { loc: `${SITE}/mentions-legales`, priority: '0.3', changefreq: 'yearly' },
   ];
 
   const articles = db.prepare(
@@ -97,8 +98,9 @@ app.get('/sitemap.xml', (_req, res) => {
 
 // Servir le frontend React si dist/ est buildé (prod)
 if (hasDist) {
-  app.use(express.static(distPath));
-  app.get('*', (_req, res) => res.sendFile(path.join(distPath, 'index.html')));
+  // extensions: /services sert services.html (page prérendue pour le GEO)
+  app.use(express.static(distPath, { extensions: ['html'] }));
+  app.get('*', (_req, res) => res.sendFile(path.join(distPath, 'spa.html')));
 }
 
 const PORT = process.env.PORT || 5001;

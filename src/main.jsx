@@ -63,6 +63,9 @@ const router = createBrowserRouter([
   { path: "*", element: <NotFound /> },
 ]);
 
+// Retire les balises <head> du prérendu : React remet celles de la page courante.
+document.querySelectorAll("[data-prerender]").forEach((el) => el.remove());
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
