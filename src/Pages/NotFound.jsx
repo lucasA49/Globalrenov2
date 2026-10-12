@@ -11,12 +11,15 @@ export default function NotFound() {
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center px-6 pt-20">
         <div className="text-center max-w-lg">
-          <p className="text-6xl font-extrabold text-[#4F7A28]">404</p>
-          <h1 className="mt-4 text-2xl md:text-3xl font-bold text-gray-900">
-            Cette page n'existe pas
+          <p className="text-6xl" role="img" aria-label="Triste">😢</p>
+          <p className="mt-4 text-sm font-semibold text-[#4F7A28] uppercase tracking-wider">
+            Erreur 404
+          </p>
+          <h1 className="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+            Il semblerait que vous vous soyez trompé d'adresse
           </h1>
           <p className="mt-4 text-gray-600">
-            Le lien que vous avez suivi est peut-être incorrect, ou la page a été déplacée.
+            La page que vous cherchez n'existe pas ou plus. Revenez à l'accueil, ou contactez-nous directement si vous pensez qu'il s'agit d'une erreur.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <NavLink

@@ -1,1 +1,0 @@
-import{j as r}from"./tiptap-bw-8ZBs3.js";import{A as t}from"./AdminArticleForm-NQTsGZaG.js";import"./vendor-XUgVFSAr.js";import"./index-BB5sISZd.js";import"./AdminLayout-DHsIHe8f.js";import"./api-BUOPkEcU.js";import"./eye-D60pjGCt.js";function A(){return r.jsx(t,{})}export{A as default};
